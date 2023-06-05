@@ -1,0 +1,9 @@
+<mat-accordion multi="true" *ngIf="arts.length > 0">
+  <mat-expansion-panel *ngFor="let art of arts">
+    <mat-expansion-panel-header>
+      {{ art.keyword }}
+    </mat-expansion-panel-header>
+    <p>{{ art.artFile }}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="arts.length<=0">No arts added yet!</p>
