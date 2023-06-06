@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "oauth": "^0.10.0",
-    "passport-oauth2": "^1.7.0"
-  }
-}
