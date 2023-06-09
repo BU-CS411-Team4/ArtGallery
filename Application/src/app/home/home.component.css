@@ -1,0 +1,31 @@
+
+/*  adding color to the link */
+.nav a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: white background-color;
+  }
+   
+    /*  to show people what they are clickin on. When cloicked on sign in with google */
+  .nav a:hover {
+    background-color: grey;
+  }
+  
+  
+    /*  styling the black mark around the sign in with google  */
+  @media screen and (min-width: 400px) {
+    .nav li {
+      width: 120px;
+      border-bottom: none;
+      height: 40px;
+      line-height: 40px;
+      font-size: 1em;
+    }
+    
+    /* to make the sign in button in the middle   */
+     .nav li {
+      display: inline-block;
+      margin-right: -4px;
+    }
+}
