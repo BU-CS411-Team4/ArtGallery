@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from 'rxjs'
 import { Art } from '../art.model';
 import { ArtsService } from "../arts.service";
