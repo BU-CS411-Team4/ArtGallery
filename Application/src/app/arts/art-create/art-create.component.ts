@@ -18,7 +18,7 @@ export class ArtCreateComponent {
     if(form.invalid){
       return;
     }
-    this.artsService.addArt(form.value);
+    this.artsService.addArt(form.value['keyword'], 'This is where the Art File will be saved');
     form.resetForm();
   }
 }

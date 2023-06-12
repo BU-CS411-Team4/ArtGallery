@@ -15,11 +15,15 @@ export class ArtListComponent implements OnInit, OnDestroy {
   constructor(public artsService: ArtsService) {}
 
   ngOnInit() {
-    this.arts = this.artsService.getArts();
+    this.artsService.getArts();
     this.artsSub = this.artsService.getArtUpdateListener()
       .subscribe((arts:Art[]) => {
         this.arts = arts;
       });
+  }
+
+  onDelete(artId: string){
+    this.artsService.deleteArt(artId)
   }
 
   ngOnDestroy() {
