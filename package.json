@@ -1,0 +1,34 @@
+{
+  "name": "oauth-draft",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-oauth2": "^1.7.0",
+    "pug": "^3.0.2"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BU-CS411-Team4/ArtGallery.git"
+  },
+  "author": "jaimey frank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BU-CS411-Team4/ArtGallery/issues"
+  },
+  "homepage": "https://github.com/BU-CS411-Team4/ArtGallery#readme",
+  "description": ""
+}
