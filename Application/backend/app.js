@@ -6,7 +6,7 @@ const artsRoutes = require("./routes/arts");
 
 const app = express();
 
-const uri = "mongodb+srv://dk98:MyIQSKVbCltuxfWX@artgallery.3bkz689.mongodb.net/";
+const uri = "mongodb+srv://dk98:yoLbVTvkmURIEfjP@artgallery.3bkz689.mongodb.net/";
 
 mongoose
   .connect(uri)

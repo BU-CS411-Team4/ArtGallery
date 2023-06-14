@@ -3,13 +3,14 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from '@angular/common/http'
 import {Subject} from "rxjs";
 import {map} from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 export class ArtsService {
   private arts: Art[] = [];
   private artsUpdated = new Subject<Art[]>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getArts(){
     this.http
@@ -42,8 +43,8 @@ export class ArtsService {
       .post<{message:string, artId: string}>('http://localhost:3000/api/arts', art)
       .subscribe((responseData) => {
         art.id = responseData.artId;
-        this.arts.push(art)
-        this.artsUpdated.next([...this.arts])
+        this.arts.push(art);
+        this.artsUpdated.next([...this.arts]);
       });
   }
 
