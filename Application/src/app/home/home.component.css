@@ -3,24 +3,26 @@
   list-style: none;
   background-color: black;
   text-align: center;
-  padding: 0;
+  padding:0;
   margin: 0;
 }
 
-/* Adding color to the link */
+
+/*  adding color and style to the text */
 .nav a {
   text-decoration: none;
   color: white;
   display: block;
   transition: white background-color;
 }
+ 
+  /*  to show people what they are clickin on. When cloicked on sign in with google */
+  .nav a:hover {
+    background-color: grey;
+  }
 
-/* To show people what they are clicking on when clicked on "Sign in with Google" */
-.nav a:hover {
-  background-color: grey;
-}
 
-/* Styling the black mark around the "Sign in with Google" */
+  /*  styling the black mark around the sign in with google  */
 @media screen and (min-width: 400px) {
   .nav li {
     width: 200px;
@@ -29,13 +31,12 @@
     line-height: 40px;
     font-size: 1em;
   }
-
-  /* To make the sign-in button in the middle */
-  .nav li {
+  
+  /* to make the sign in button in the middle   */
+   .nav li {
     display: inline-block;
     margin-right: -4px;
   }
-}
 
 /* ---------- Slides showwwwww ________*/
 
@@ -126,7 +127,7 @@
   background-color: #717171;
 }
 
-/* ---------- SLideShowwwww ________*/
+/* ---------- SLideShowwwww end _______*/
 
 
 /* ---------- Who are we ________*/
@@ -182,3 +183,4 @@ h2.text1 {
   
   
 
+}

@@ -1,16 +1,38 @@
 <!-- Sign in button --> 
  
+
+<!-- Display the Google sign-in button in the middle of the navigation bar  -->
 <header>
   <div class="nav">
     <ul>
-      
-<li class="Signin">  <a 
-href="#">SIGN IN WITH GOOGLE</a> </li> 
-    
+      <li class="nav-signin">
+        <a href="/auth/google">SIGN IN WITH GOOGLE</a>
+      </li>
     </ul>
   </div>
-  
-  </header>
+</header>
+
+
+  <script>
+    function signInWithGoogle() {
+      // Make an HTTP request to the backend endpoint for Google authentication
+      fetch('/auth/google')
+        .then(response => {
+          if (response.redirected) {
+            // Redirect to the authentication page
+            window.location.href = response.url;
+          }
+        })
+        .catch(error => {
+          console.error('Error signing in with Google:', error);
+        });
+    }
+    
+  </script>
+
+
+
+<!-- Sign in button  endddd  -->  
 
 <!-- Art slideshow --> 
 
