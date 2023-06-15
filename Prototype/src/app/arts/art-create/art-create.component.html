@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form #artForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+        matInput
+        name="keyword"
+        ngModel
+        required
+        minlength="1"
+        #keyword="ngModel"
+        placeholder="Keyword"
+      >
+      <mat-error *ngIf="keyword.invalid">Please enter keywords.</mat-error>
+    </mat-form-field>
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="onGenerateArt(artForm)"
+      >Generate Art</button>
+    </div>
+    <div><img [src]="imageUrl"></div>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="onAddArt(artForm)"
+    >Save</button>
+  </form>
+</mat-card>
+
+
