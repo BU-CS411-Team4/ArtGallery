@@ -1,6 +1,6 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <form (submit)="onAddArt(artForm)" #artForm="ngForm" *ngIf="!isLoading">
+  <form #artForm="ngForm" *ngIf="!isLoading">
     <mat-form-field>
       <input
         matInput
@@ -13,11 +13,21 @@
       >
       <mat-error *ngIf="keyword.invalid">Please enter keywords.</mat-error>
     </mat-form-field>
-
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="onGenerateArt(artForm)"
+      >Generate Art</button>
+    </div>
+    <div><img [src]="imageUrl"></div>
     <button
       mat-raised-button
       color="primary"
-      type="submit">Submit</button>
+      type="button"
+      (click)="onAddArt(artForm)"
+    >Save</button>
   </form>
 </mat-card>
 
