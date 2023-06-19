@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     if(isValid){
       error = null;
     }
-    cb(null, "backend/images")
+    cb(null, "backend/downloads")
   },
   filename: (req, file, cb) => {
     const name = file.req.body.keyword.toLowerCase().split(' ').join('-');
@@ -31,7 +31,7 @@ router.post("", multer({storage: storage}).single("image"), (req,res,next) => {
   const art = new ArtSchema({
     keyword: req.body.keyword,
     image: req.body.image,
-    imagePath: url + "/images/" + req.file.filename
+    imagePath: url + "/downloads/" + req.file.filename
   });
   art.save().then(createdArt => {
     res.status(201).json({

@@ -23,7 +23,8 @@ export class ArtsService {
           return {
             keyword: art.keyword,
             id: art._id,
-            imagePath: art.imagePath
+            imagePath: art.imagePath,
+            audioPath: art.audioPath
           }
         });
       }))
@@ -38,27 +39,24 @@ export class ArtsService {
   }
 
   // @ts-ignore
-  generateArt(keyword:string): Observable<Blob>{
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const body = JSON.stringify({ keyword: keyword });
-
-    return this.http.post('http://localhost:3000/api/generate', body, {
-      headers: headers,
-      responseType: 'blob'
+  generateArt(keyword:string){
+    return this.http.post('http://localhost:3000/api/generate/', { keyword: keyword }, {
+      responseType: 'json'
     });
   }
 
-  addArt(keyword:string, image:Blob) {
-    const artData = new FormData();
-    artData.append('keyword', keyword);
-    artData.append('image', image, 'image.jpg');
-
-    this.http
-      .post<{message:string, art: Art}>('http://localhost:3000/api/arts', artData)
+  addArt(output:any){
+    this.http.post<{message:string, art: Art}>('http://localhost:3000/api/arts', {output})
       .subscribe((responseData) => {
-        const art: Art = {id: responseData.art.id, keyword: keyword, imagePath: responseData.art.imagePath}
+        const art: Art = {
+          id: responseData.art.id,
+          keyword: responseData.art.keyword,
+          imagePath: responseData.art.imagePath,
+          audioPath: responseData.art.audioPath}
         this.arts.push(art);
         this.artsUpdated.next([...this.arts]);
+
+        this.router.navigate([''])
       });
   }
 

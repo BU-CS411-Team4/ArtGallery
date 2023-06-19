@@ -21,14 +21,29 @@
         (click)="onGenerateArt(artForm)"
       >Generate Art</button>
     </div>
-    <div><img [src]="imageUrl"></div>
+    <div>
+      <p *ngIf="output" >{{output.keyword}}</p>
+    </div>
+    <div>
+      <img *ngIf="output" [ngSrc]="output.imageUrl" width="300" height="300">
+    </div>
+    <div>
+      <audio *ngIf="output" controls>
+        <source [src]="output.audioUrl" type="audio/wav">
+      </audio>
+    </div>
     <button
       mat-raised-button
       color="primary"
       type="button"
-      (click)="onAddArt(artForm)"
+      (click)="onAddArt()"
+      *ngIf="output"
     >Save</button>
   </form>
+  <div>
+    <p *ngIf="isLoading && !output">Generating...</p>
+    <p *ngIf= "output && isLoading">Saving...</p>
+  </div>
 </mat-card>
 
 

@@ -3,7 +3,10 @@
     <mat-expansion-panel-header>
       {{ art.keyword }}
     </mat-expansion-panel-header>
-    <p>{{ art.keyword }}</p>
+    <img [ngSrc]="art.imagePath" alt="art.keyword" width="300" height="300">
+    <audio controls>
+      <source [src]="art.audioPath" type="audio/wav">
+    </audio>
     <mat-action-row>
       <button mat-button color="warn" (click)="onDelete(art.id)">DELETE</button>
     </mat-action-row>

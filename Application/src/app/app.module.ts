@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { ArtCreateComponent } from './arts/art-create/art-create.component';
 import { HeaderComponent } from "./header/header.component";
 import { ArtListComponent } from "./arts/art-list/art-list.component";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -25,19 +26,20 @@ import { ArtListComponent } from "./arts/art-list/art-list.component";
     ArtCreateComponent,
     ArtListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatExpansionModule,
-    MatProgressSpinnerModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatCardModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatExpansionModule,
+        MatProgressSpinnerModule,
+        HttpClientModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
