@@ -1,13 +1,21 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require('cors');
+const path = require('path');
 
 const artsRoutes = require("./routes/arts");
 const generateRoutes = require("./routes/generate");
 
 const app = express();
+app.use(cors());
+app.use('/downloads', express.static(path.join(__dirname, 'downloads')));
 
-const uri = "mongodb+srv://dk98:d7ZQ2SeM3gDxO6DP@artgallery.3bkz689.mongodb.net/";
+
+require('dotenv').config()
+const auth = process.env.MONGODB_API_TOKEN;
+
+const uri = `mongodb+srv://dk98:${auth}@artgallery.3bkz689.mongodb.net/`;
 mongoose
   .connect(uri)
   .then(() => {
