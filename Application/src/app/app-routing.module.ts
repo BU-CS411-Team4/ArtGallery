@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ArtListComponent} from "./arts/art-list/art-list.component";
-import {ArtCreateComponent} from "./arts/art-create/art-create.component";
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: ArtListComponent },
-  { path: 'create', component: ArtCreateComponent },
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

@@ -1,14 +1,10 @@
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Chokokutai&display=swap');
+  .header {
+      padding: 55px;
+    text-align: center;
+    background: white;
+    color: black;
+    font-size: 130px;
+    font-family: 'Chokokutai', cursive;
+  }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
