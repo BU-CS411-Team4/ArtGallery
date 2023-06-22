@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const fetch = require("node-fetch");
 const Replicate = require("replicate");
-const fs = require('fs')
 
 require('dotenv').config()
 
@@ -49,7 +47,5 @@ router.post("/", async (req, res, next) => {
     res.status(500).send("An error occurred while processing your request.");
   }
 });
-
-router.post("/")
 
 module.exports = router;

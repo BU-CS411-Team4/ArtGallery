@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -6,4 +7,23 @@ import {Component} from "@angular/core";
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent{}
+export class HeaderComponent implements OnInit{
+  loggedIn: boolean;
+  constructor(public authService: AuthService) {
+    this.loggedIn = false;
+  }
+
+  ngOnInit() {
+    this.authService.checkLoginStatus().subscribe(response => {
+      this.loggedIn = response;
+    });
+  }
+
+  authenticateWithGoogle() {
+    this.authService.googleLogin();
+  }
+
+  logoutWithGoogle() {
+    this.authService.logout();
+  }
+}
