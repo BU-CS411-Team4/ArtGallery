@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, NullUser } from './auth.model';
-import {tap} from "rxjs";
 import {map} from "rxjs/operators";
 
 interface LoginStatusResponse {
@@ -23,10 +22,16 @@ export class AuthService {
     window.location.href = "http://localhost:3000/api/auth/google";
   }
 
-  logout(): void {
-    this.http.get('http://localhost:3000/api/auth/logout')
-      .subscribe(() => {
-        this.currentUser = new NullUser();
+  logout() {
+    this.http.get('http://localhost:3000/api/auth/logout', {withCredentials: true})
+      .subscribe({
+        next: () => {
+          this.currentUser = new NullUser();
+          window.location.href = "http://localhost:4200/";
+        },
+        error: error => {
+          console.log(error);
+        }
       });
   }
 

@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit{
     });
   }
 
-  authenticateWithGoogle() {
+  loginWithGoogle() {
     this.authService.googleLogin();
   }
 

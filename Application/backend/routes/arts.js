@@ -6,8 +6,8 @@ const fs = require('fs');
 const path = require('path');
 const appDir = path.dirname(require.main.filename);
 
-router.post("", async (req,res) => {
-  const { output } = req.body;
+router.post("/saveArt", async (req,res) => {
+  const output = req.body.output;
 
   // Download the files using the URLs in the output object.
   const imagePath = await downloadFile(output.imageUrl, `${output.keyword}.jpg`);
@@ -16,7 +16,8 @@ router.post("", async (req,res) => {
   const art = new ArtSchema({
     keyword: output.keyword,
     imagePath,
-    audioPath
+    audioPath,
+    userId: req.body.user._id
   });
 
   art.save().then(createdArt => {
@@ -26,14 +27,15 @@ router.post("", async (req,res) => {
         id: createdArt._id,
         keyword: createdArt.keyword,
         imagePath: createdArt.imagePath,
-        audioPath: createdArt.audioPath
+        audioPath: createdArt.audioPath,
+        user_Id: createdArt.userId
       }
     });
   });
 });
 
-router.get("", (req,res,next) => {
-  ArtSchema.find()
+router.post("/getArt", (req,res,next) => {
+  ArtSchema.find({userId: req.body.user._id})
     .then(documents => {
       res.status(200).json({
         message: 'Art fetched successfully',

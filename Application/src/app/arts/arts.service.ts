@@ -4,18 +4,19 @@ import {HttpClient} from '@angular/common/http'
 import {Subject} from "rxjs";
 import {map} from "rxjs/operators";
 import { Router } from "@angular/router";
+import { AuthService } from "../auth/auth.service";
 
 @Injectable({providedIn: 'root'})
 export class ArtsService {
   private arts: Art[] = [];
   private artsUpdated = new Subject<Art[]>();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, public AuthService: AuthService) {}
 
   getArts(){
     this.http
-      .get<{ message: string; arts: any }>(
-        'http://localhost:3000/api/arts'
+      .post<{ message: string; arts: any }>(
+        'http://localhost:3000/api/arts/getArt', {user: this.AuthService.currentUser}
       )
       .pipe(map((artData) => {
         // @ts-ignore
@@ -24,7 +25,8 @@ export class ArtsService {
             keyword: art.keyword,
             id: art._id,
             imagePath: art.imagePath,
-            audioPath: art.audioPath
+            audioPath: art.audioPath,
+            userId: art.userId
           }
         });
       }))
@@ -40,23 +42,23 @@ export class ArtsService {
 
   // @ts-ignore
   generateArt(keyword:string){
-    return this.http.post('http://localhost:3000/api/generate/', { keyword: keyword }, {
-      responseType: 'json'
-    });
+    return this.http.post('http://localhost:3000/api/generate/', { keyword: keyword }, {responseType: 'json'});
   }
 
   addArt(output:any){
-    this.http.post<{message:string, art: Art}>('http://localhost:3000/api/arts', {output})
+    this.http.post<{message:string, art: Art}>('http://localhost:3000/api/arts/saveArt', {output: output, user: this.AuthService.currentUser})
       .subscribe((responseData) => {
         const art: Art = {
           id: responseData.art.id,
           keyword: responseData.art.keyword,
           imagePath: responseData.art.imagePath,
-          audioPath: responseData.art.audioPath}
+          audioPath: responseData.art.audioPath,
+          userId: responseData.art.userId
+        }
         this.arts.push(art);
         this.artsUpdated.next([...this.arts]);
 
-        this.router.navigate([''])
+        this.router.navigate(['/gallery'])
       });
   }
 

@@ -3,4 +3,5 @@ export interface Art {
   keyword: string;
   imagePath: string;
   audioPath: string;
+  userId: string;
 }

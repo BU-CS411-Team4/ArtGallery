@@ -5,9 +5,10 @@
   <span class="spacer"></span>
   <ul>
     <li>
-      <button mat-button *ngIf="!loggedIn" (click)="authenticateWithGoogle()">Sign In with Google</button>
+      <button mat-button *ngIf="!loggedIn" (click)="loginWithGoogle()">Sign In with Google</button>
       <button mat-button *ngIf="loggedIn" (click)="logoutWithGoogle()">Logout</button>
-      <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Art</a>
+      <a mat-button routerLink="/gallery" *ngIf="loggedIn" routerLinkActive="mat-accent">My Gallery</a>
+      <a mat-button routerLink="/create" *ngIf="loggedIn" routerLinkActive="mat-accent">New Art</a>
     </li>
   </ul>
 </mat-toolbar>

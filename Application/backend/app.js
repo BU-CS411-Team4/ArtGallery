@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require('cors');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 
@@ -33,11 +32,11 @@ mongoose
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:4200', // replace with the url of your client
+  origin: ['http://localhost:4200'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Authorization'],
   credentials: true
 }));
-
-app.use(cookieParser());
 
 app.use(session({
   secret: 'keyboard cat',
@@ -45,7 +44,8 @@ app.use(session({
   saveUninitialized: true,
   cookie: {
     secure: false
-  }
+  },
+  Passport: true
 }));
 
 
@@ -55,19 +55,6 @@ app.use(passport.session());
 app.use('/downloads', express.static(path.join(__dirname, 'downloads')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PATCH, DELETE, OPTIONS"
-//   );
-//   next();
-// });
 
 app.use("/api/arts", artsRoutes)
 app.use("/api/generate", generateRoutes)

@@ -18,12 +18,14 @@ import { AppComponent } from './app.component';
 import { ArtCreateComponent } from './arts/art-create/art-create.component';
 import { HeaderComponent } from "./header/header.component";
 import { ArtListComponent } from "./arts/art-list/art-list.component";
+import {HomeComponent} from "./home/home.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    HomeComponent,
     ArtCreateComponent,
     ArtListComponent
   ],
