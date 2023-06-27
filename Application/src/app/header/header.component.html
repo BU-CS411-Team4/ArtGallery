@@ -1,14 +1,16 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="headerBar">
   <span>
-    <a routerLink="/">AI Art Gallery</a>
+    <a routerLink="/">
+      <img src="assets/logo.png" alt="Logo" style="width: 150px; height: auto;">
+    </a>
   </span>
   <span class="spacer"></span>
   <ul>
     <li>
-      <button mat-button *ngIf="!loggedIn" (click)="loginWithGoogle()">Sign In with Google</button>
-      <button mat-button *ngIf="loggedIn" (click)="logoutWithGoogle()">Logout</button>
-      <a mat-button routerLink="/gallery" *ngIf="loggedIn" routerLinkActive="mat-accent">My Gallery</a>
-      <a mat-button routerLink="/create" *ngIf="loggedIn" routerLinkActive="mat-accent">New Art</a>
+      <button class="nav-link" mat-button *ngIf="!loggedIn" (click)="loginWithGoogle()">Sign In with Google</button>
+      <a class="nav-link" mat-button routerLink="/create" *ngIf="loggedIn" routerLinkActive="active-link">New Art</a>
+      <a class="nav-link" mat-button routerLink="/gallery" *ngIf="loggedIn" routerLinkActive="active-link">My Gallery</a>
+      <button class="nav-link" mat-button *ngIf="loggedIn" (click)="logoutWithGoogle()">Logout</button>
     </li>
   </ul>
 </mat-toolbar>

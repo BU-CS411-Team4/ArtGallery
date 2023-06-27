@@ -52,7 +52,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(express.static('assets'));
 app.use('/downloads', express.static(path.join(__dirname, 'downloads')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 

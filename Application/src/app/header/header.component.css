@@ -12,3 +12,16 @@ a {
 .spacer {
   flex: 1 1 auto;
 }
+
+.nav-link
+{
+  /* font-weight: bold; */
+  text-decoration: underline;
+  text-decoration-color: #2DB6A3;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.headerBar {
+  background-color: #FCCF4D;
+  height: 80px;
+}

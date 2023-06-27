@@ -5,3 +5,54 @@ mat-form-field{
 mat-spinner {
   margin: auto;
 }
+
+.button {
+  background-color: #FCCF4D;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.loading {
+  font-size: 15px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.frame{
+  position:relative;
+  padding:0;
+  margin:0;
+  border:solid 15px #555;
+  max-width:100%;
+  box-shadow:-3px -3px 12px #999;
+
+}
+.border{
+  position:relative;
+  padding:0;
+  margin:0;
+  border:solid 50px white;
+  box-shadow:-3px -3px 12px #999;
+}
+.art {
+  display:block;
+  padding:0;
+  margin:0;
+  width:100%;
+  height:auto;
+  border-top:solid 2px #aaa;
+  border-left:solid 2px #aaa;
+  border-bottom:solid 2px #ccc;
+  border-right:solid 2px #ccc;
+}
+
+.title {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.example-header-image {
+  background-image: url('/assets/logo2.png');
+  background-size: cover;
+}

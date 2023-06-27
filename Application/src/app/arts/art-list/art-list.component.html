@@ -1,15 +1,29 @@
-<mat-accordion multi="true" *ngIf="arts.length > 0">
-  <mat-expansion-panel *ngFor="let art of arts">
-    <mat-expansion-panel-header>
-      {{ art.keyword }}
-    </mat-expansion-panel-header>
-    <img [ngSrc]="art.imagePath" alt="art.keyword" width="300" height="300">
-    <audio controls>
-      <source [src]="art.audioPath" type="audio/wav">
-    </audio>
-    <mat-action-row>
-      <button mat-button color="warn" (click)="onDelete(art.id)">DELETE</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion>
-<p class="info-text mat-body-1" *ngIf="arts.length<=0">No arts added yet!</p>
+<div class=container
+     *ngIf="arts.length > 0"
+     fxLayout="column"
+     fxLayoutGap="32px"
+     fxLayoutAlign="space-around center"
+>
+    <mat-card *ngFor="let art of arts">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title class="title">{{ art.keyword.toUpperCase() }}</mat-card-title>
+          </mat-card-header>
+            <div class="frame">
+              <div class="border">
+                <img mat-card-image class="art" [src]="art.imagePath" alt="art.keyword">
+              </div>
+            </div>
+          <mat-card-content style="text-align: center">
+            <br>
+            <audio controls>
+              <source [src]="art.audioPath" type="audio/wav">
+            </audio>
+            <br>
+          </mat-card-content>
+          <mat-card-actions class="button">
+            <button mat-button color="warn" (click)="onDelete(art.id)">DELETE</button>
+          </mat-card-actions>
+    </mat-card>
+</div>
+<p class="info-text mat-body-1" *ngIf="arts.length<=0">Add New Art!</p>

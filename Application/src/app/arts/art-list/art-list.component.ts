@@ -18,7 +18,7 @@ export class ArtListComponent implements OnInit, OnDestroy {
     this.artsService.getArts();
     this.artsSub = this.artsService.getArtUpdateListener()
       .subscribe((arts:Art[]) => {
-        this.arts = arts;
+        this.arts = arts.reverse();
       });
   }
 

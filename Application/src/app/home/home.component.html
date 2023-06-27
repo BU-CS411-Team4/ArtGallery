@@ -1,103 +1,65 @@
-<!-- Sign in button -->
-
-
-<!-- Display the Google sign-in button in the middle of the navigation bar  -->
-<header>
-  <div class="nav">
-    <ul>
-      <li class="nav-signin">
-        <a href="/auth/google">SIGN IN WITH GOOGLE</a>
-      </li>
-    </ul>
+<!-- Container for the image gallery -->
+<div class="container">
+  <div class="statement">
+    <img src="assets/logo2.png" alt="Logo" style="width: 150px; height: auto;">
+    <h2 class="Art">AI Generated Art Gallery with Music</h2>
+    <h2 class="text1">Become an artist and a musician. Open your own art gallery. The limit is yours.</h2>
   </div>
-</header>
 
-
-<script>
-  function signInWithGoogle() {
-    // Make an HTTP request to the backend endpoint for Google authentication
-    fetch('/auth/google')
-      .then(response => {
-        if (response.redirected) {
-          // Redirect to the authentication page
-          window.location.href = response.url;
-        }
-      })
-      .catch(error => {
-        console.error('Error signing in with Google:', error);
-      });
-  }
-
-</script>
-
-
-
-<!-- Sign in button  endddd  -->
-
-<!-- Art slideshow -->
-
-<h1>
-  <!-- Container for the image gallery -->
-  <div class="container">
-
-    <!-- Full-width images with number text -->
+  <!-- Full-width images with number text -->
+  <div class="slideshow-container">
     <div class="mySlides fade">
-      <div class="numbertext">1 / 4</div>
-      <img src="https://www.travelandleisure.com/thmb/sHRYm8qU7E-qlfr8RN0gyw0RsCQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/201409-w-worlds-prettiest-coastal-towns-manarola-italy-32eab3c8c5584b49bec86a20449101d3.jpg" style="width:100%">
-
-
-      <div class="text"></div>
-
-    </div>
+      <div class="frame">
+        <div class="border">
+          <img class="art" src="assets/Main1.jpg" alt="Drawing">
+        </div><!-- .border -->
+      </div><!-- .frame -->
+    </div><!-- .mySlides fade -->
 
     <div class="mySlides fade">
-      <div class="numbertext">2 / 4</div>
-      <img src="https://travel2next.com/wp-content/uploads/sunset-haiti-beaches.jpg">
-
-      <div class="text"></div>
-    </div>
-
-
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 4</div>
-      <img src="https://19january2017snapshot.epa.gov/sites/production/files/styles/medium/public/2016-01/coasts_small.png" style="width:100%">
-      <div class="text">Caption Three</div>
-    </div>
+      <div class="frame">
+        <div class="border">
+          <img class="art" src="assets/Main2.png" alt="Drawing">
+        </div><!-- .border -->
+      </div><!-- .frame -->
+    </div><!-- .mySlides fade -->
 
     <div class="mySlides fade">
-      <div class="numbertext">4 / 4</div>
-      <img src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2010/11/coastal-photography-reflections.jpg?resize=600%2C394&ssl=1" style="width:100%">
-      <div class="text"></div>
-    </div>
+      <div class="frame">
+        <div class="border">
+          <img class="art" src="assets/Main3.png" alt="Drawing">
+        </div><!-- .border -->
+      </div><!-- .frame -->
+    </div><!-- .mySlides fade -->
+
+    <div class="mySlides fade">
+      <div class="frame">
+        <div class="border">
+          <img class="art" src="assets/Main4.png" alt="Drawing">
+        </div><!-- .border -->
+      </div><!-- .frame -->
+    </div><!-- .mySlides fade -->
+
+    <div class="mySlides fade">
+      <div class="frame">
+        <div class="border">
+          <img class="art" src="assets/Main5.png" alt="Drawing">
+        </div><!-- .border -->
+      </div><!-- .frame -->
+    </div><!-- .mySlides fade -->
 
     <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
+    <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+    <a class="next" (click)="plusSlides(1)">&#10095;</a>
+  </div><!-- .slideshow-container -->
 
   <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
+  <div style="text-align: center">
+    <span class="dot" (click)="currentSlide(1)"></span>
+    <span class="dot" (click)="currentSlide(2)"></span>
+    <span class="dot" (click)="currentSlide(3)"></span>
+    <span class="dot" (click)="currentSlide(4)"></span>
+    <span class="dot" (click)="currentSlide(5)"></span>
   </div>
-
-</h1>
-
-<!-- who are we -->
-
-<div>
-  <div class="boxed">
-    <h4>Art</h4>
-  </div>
-  <h2 class="Art">Making art accessible to all!</h2>
-</div>
-
-<div class="art">
-  <img src="https://th-thumbnailer.cdn-si-edu.com/owkLwxQdzPVl8Qdf8amTcNrE0aA=/fit-in/1600x0/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/12/d0/12d08a47-a37c-4df8-a448-95fba1dd6c15/louvre.jpg" alt="fall" style="width:100%;">
-  <h2 class="text1">This App will allow individuals to create their own art gallery and they can experience their arts through music....</h2>
-</div>
-
-
+</div><!-- .container -->
+<br>

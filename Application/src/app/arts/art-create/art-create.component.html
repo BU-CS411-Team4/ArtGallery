@@ -16,34 +16,46 @@
     <div>
       <button
         mat-raised-button
-        color="primary"
+        class="button"
         type="button"
         (click)="onGenerateArt(artForm)"
       >Generate Art</button>
     </div>
-    <div>
-      <p *ngIf="output" >{{output.keyword}}</p>
-    </div>
-    <div>
-      <img *ngIf="output" [ngSrc]="output.imageUrl" width="300" height="300">
-    </div>
-    <div>
-      <audio *ngIf="output" controls>
-        <source [src]="output.audioUrl" type="audio/wav">
-      </audio>
-    </div>
-    <button
-      mat-raised-button
-      color="primary"
-      type="button"
-      (click)="onAddArt()"
-      *ngIf="output"
-    >Save</button>
+
+    <mat-card *ngIf="output" style="width:70%">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title class="title">{{ output.keyword.toUpperCase() }}</mat-card-title>
+      </mat-card-header>
+      <div class="frame">
+        <div class="border">
+          <img mat-card-image class="art" [src]="output.imageUrl" alt="art.keyword">
+        </div>
+      </div>
+      <mat-card-content style="text-align: center">
+        <br>
+        <audio controls>
+          <source [src]="output.audioUrl" type="audio/wav">
+        </audio>
+        <br>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          class="button"
+          type="button"
+          (click)="onAddArt()"
+        >Save</button>
+      </mat-card-actions>
+    </mat-card>
+
   </form>
+
   <div>
-    <p *ngIf="isLoading && !output">Generating...</p>
-    <p *ngIf= "output && isLoading">Saving...</p>
+    <p class="loading" *ngIf="isLoading && !output">Generating...</p>
+    <p class="loading" *ngIf= "output && isLoading">Saving...</p>
   </div>
+
 </mat-card>
 
 

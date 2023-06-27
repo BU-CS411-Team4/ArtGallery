@@ -13,63 +13,43 @@ export class HomeComponent implements OnInit {
     window.onload = () => {
       this.initSlideShow();
     };
+    this.showSlides(1); // Show the first slide when the page loads
   }
 
   initSlideShow(): void {
     let slideIndex = 1;
-    showSlides(slideIndex);
+    this.showSlides(slideIndex);
+  }
 
-    function showSlides(n: number) {
-      const slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
-      const dots = document.getElementsByClassName("dot") as HTMLCollectionOf<HTMLElement>;
+  showSlides(n: number): void {
+    const slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
+    const dots = document.getElementsByClassName("dot") as HTMLCollectionOf<HTMLElement>;
 
-      if (n > slides.length) {
-        slideIndex = 1;
-      } else if (n < 1) {
-        slideIndex = slides.length;
-      }
-
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
+    if (n > slides.length) {
+      n = 1;
+    } else if (n < 1) {
+      n = slides.length;
     }
 
-    function plusSlides(n: number) {
-      showSlides(slideIndex += n);
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
     }
 
-    function currentSlide(n: number) {
-      showSlides(slideIndex = n);
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
     }
 
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
+    slides[n - 1].style.display = "block";
+    dots[n - 1].className += " active";
+  }
 
-    if (prevButton) {
-      prevButton.addEventListener('click', function () {
-        plusSlides(-1);
-      });
-    }
+  plusSlides(n: number): void {
+    let slideIndex = 1; // You can remove this line if you declare slideIndex as a property of HomeComponent
+    slideIndex += n;
+    this.showSlides(slideIndex);
+  }
 
-    if (nextButton) {
-      nextButton.addEventListener('click', function () {
-        plusSlides(1);
-      });
-    }
-
-    const dotElements = document.getElementsByClassName('dot');
-
-    for (let j = 0; j < dotElements.length; j++) {
-      dotElements[j].addEventListener('click', function () {
-        currentSlide(j + 1);
-      });
-    }
+  currentSlide(n: number): void {
+    this.showSlides(n);
   }
 }

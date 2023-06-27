@@ -9,8 +9,8 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatExpansionModule } from "@angular/material/expansion";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {NgOptimizedImage} from "@angular/common";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { NgOptimizedImage } from "@angular/common";
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,7 +18,9 @@ import { AppComponent } from './app.component';
 import { ArtCreateComponent } from './arts/art-create/art-create.component';
 import { HeaderComponent } from "./header/header.component";
 import { ArtListComponent } from "./arts/art-list/art-list.component";
-import {HomeComponent} from "./home/home.component";
+import { HomeComponent } from "./home/home.component";
+import { RouterLink } from "@angular/router";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
 @NgModule({
@@ -29,20 +31,22 @@ import {HomeComponent} from "./home/home.component";
     ArtCreateComponent,
     ArtListComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatCardModule,
-        MatButtonModule,
-        MatToolbarModule,
-        MatExpansionModule,
-        MatProgressSpinnerModule,
-        HttpClientModule,
-        NgOptimizedImage
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
+    HttpClientModule,
+    NgOptimizedImage,
+    RouterLink,
+    FlexLayoutModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
