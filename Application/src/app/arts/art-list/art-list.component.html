@@ -7,7 +7,7 @@
     <mat-card *ngFor="let art of arts">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title class="title">{{ art.keyword.toUpperCase() }}</mat-card-title>
+            <mat-card-title class="title">{{ art.keyword.split('_')[0].toUpperCase() }}</mat-card-title>
           </mat-card-header>
             <div class="frame">
               <div class="border">

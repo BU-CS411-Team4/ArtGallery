@@ -6,19 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  slideIndex = 1;
   constructor() { }
 
   ngOnInit(): void {
-    window.onload = () => {
-      this.initSlideShow();
-    };
-    this.showSlides(1); // Show the first slide when the page loads
-  }
-
-  initSlideShow(): void {
-    let slideIndex = 1;
-    this.showSlides(slideIndex);
+    this.showSlides(this.slideIndex);
   }
 
   showSlides(n: number): void {
@@ -44,9 +36,15 @@ export class HomeComponent implements OnInit {
   }
 
   plusSlides(n: number): void {
-    let slideIndex = 1; // You can remove this line if you declare slideIndex as a property of HomeComponent
-    slideIndex += n;
-    this.showSlides(slideIndex);
+    if((this.slideIndex == 1) && (n == -1)) {
+      this.slideIndex = 5
+    } else if((this.slideIndex == 5) && (n == 1)) {
+      this.slideIndex = 1
+    } else {
+      this.slideIndex += n;
+    }
+
+    this.showSlides(this.slideIndex);
   }
 
   currentSlide(n: number): void {
