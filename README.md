@@ -26,10 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<video controls>
-  <source src="Application/src/assets/Demo_Video.mov" type="video/quicktime">
-  Your browser does not support the video tag.
-</video>
+[![Video Preview](Application/src/assets/Demo_Video.mov)](Application/src/assets/Demo_Video.mov)
 
 This is a MEAN stack project for a software engineering course at Boston University.
 After logging in to your google account, you can create a new art by typing in keywords such as `An astronaut riding a horse on Mars.`
