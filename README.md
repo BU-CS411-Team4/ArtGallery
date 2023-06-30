@@ -7,18 +7,13 @@
 
   <p align="center">
     BU CAS CS 411 Software Engineering Project
-    <br />
-    Team 4
-    <br />
+
+    -Team 4-
     David Euijoon Kim
-    <br />
     Jaimey Frank
-    <br />
     Janna Foy
-    <br />
     Victoria Boulin
-    <br />
-    <br />
+
   </p>
 </div>
 
