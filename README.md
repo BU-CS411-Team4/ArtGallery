@@ -26,7 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Video Preview](Application/src/assets/Demo_Video.mov)](Application/src/assets/Demo_Video.mov)
+[![Demo Video](Demo_Video.mov)](Demo_Video.mov)
 
 This is a MEAN stack project for a software engineering course at Boston University.
 After logging in to your google account, you can create a new art by typing in keywords such as `An astronaut riding a horse on Mars.`
