@@ -41,10 +41,10 @@ API Used:
 
 ### Built With
 
-* [![Node][Node.js]][Node-url]
-* [![React][React.js]][React-url]
-* [![Express][Express.js]][Express-url]
-* [![Angular][Angular.io]][Angular-url]
+* [<img src="src/assets/mongodb.png" width="25">](https://mongodb.com) MongoDB
+* [<img src="src/assets/expressjs.png" width="25">](https://expressjs.com) ExpressJS
+* [<img src="src/assets/angular.png" width="25">](https://angular.io) Angular
+* [<img src="src/assets/nodejs.png" width="25">](https://nodejs.org) NodeJS
 
 
 
